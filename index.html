@@ -3,19 +3,34 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>SNS安全ガイド</title>
+  <title>SNS安全対策ガイド</title>
   <style>
     body {
-      font-family: 'Arial', sans-serif;
-      background-color: #f0f8ff;
+      font-family: "Arial", sans-serif;
+      background-color: #f4f8fb;
       margin: 0;
       padding: 0;
     }
     header {
-      background-color: #0c3c78;
+      background-color: #003366;
       color: white;
-      padding: 1.5rem;
+      padding: 2rem;
       text-align: center;
+    }
+    nav {
+      background-color: #005599;
+      display: flex;
+      justify-content: center;
+      padding: 0.5rem;
+    }
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin: 0 1rem;
+      font-weight: bold;
+    }
+    nav a:hover {
+      text-decoration: underline;
     }
     main {
       padding: 2rem;
@@ -24,63 +39,68 @@
       background: white;
       border-radius: 10px;
       padding: 1.5rem;
-      margin-bottom: 1.5rem;
+      margin-bottom: 2rem;
       box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     }
     h2 {
-      color: #0c3c78;
-    }
-    ul {
-      padding-left: 1.5rem;
+      color: #003366;
     }
     footer {
+      background-color: #eee;
       text-align: center;
       padding: 1rem;
-      background-color: #eee;
-      font-size: 0.9rem;
+      font-size: 0.8rem;
+      color: #444;
     }
   </style>
 </head>
 <body>
   <header>
-    <h1>SNSを安全に使うために</h1>
-    <p>トラブルを防ぐための知識と対策</p>
+    <h1>SNS安全対策ガイド</h1>
+    <p>～ アカウントを守るために知っておくべきこと ～</p>
   </header>
 
+  <nav>
+    <a href="#threats">乗っ取りの手口</a>
+    <a href="#protection">守る方法</a>
+    <a href="#support">困ったときは</a>
+  </nav>
+
   <main>
-    <section>
-      <h2>よくあるSNSトラブル</h2>
+    <section id="threats">
+      <h2>最近の乗っ取り手口</h2>
       <ul>
-        <li>なりすましアカウント</li>
-        <li>アカウント乗っ取り</li>
-        <li>悪質なDMや詐欺リンク</li>
-        <li>誹謗中傷・晒し</li>
+        <li>フィッシング詐欺：偽ログイン画面で情報を盗む</li>
+        <li>リスト型攻撃：他サイトから流出したパスワードで侵入</li>
+        <li>乗っ取りDM：詐欺リンクをばらまく</li>
+        <li>Kali Linuxなどによる高度な侵入（公共Wi-Fiなどで）</li>
       </ul>
     </section>
 
-    <section>
-      <h2>自分の身を守るポイント</h2>
+    <section id="protection">
+      <h2>自分を守る方法</h2>
       <ul>
-        <li>知らない人のリンクは絶対に開かない</li>
-        <li>パスワードは複雑で2段階認証を使う</li>
-        <li>個人情報（顔・学校・場所）を載せない</li>
-        <li>怪しい人やDMはすぐにブロック＆通報</li>
+        <li>2段階認証を必ず設定する</li>
+        <li>不審なリンクは開かない</li>
+        <li>パスワードは強く、使い回さない</li>
+        <li>VPNを使って通信を暗号化</li>
+        <li>スマホ・アプリを最新に保つ</li>
       </ul>
     </section>
 
-    <section>
-      <h2>困ったときの相談・通報先</h2>
+    <section id="support">
+      <h2>困ったときの連絡先</h2>
       <ul>
-        <li><a href="https://www.internethotline.jp/" target="_blank">インターネット・ホットラインセンター</a></li>
-        <li><a href="https://www.police.pref.[都道府県名].lg.jp/" target="_blank">都道府県警察のサイバー犯罪対策課</a></li>
-        <li>SNS各社の通報フォーム（LINE、X、Instagramなど）</li>
-        <li>身近な大人や学校の先生に相談</li>
+        <li><a href="https://www.internethotline.jp/" target="_blank">インターネットホットラインセンター</a></li>
+        <li>各SNSの通報ページ（LINE、X、Instagram）</li>
+        <li>学校や信頼できる大人に相談</li>
+        <li>最寄りの警察（サイバー犯罪対策課）</li>
       </ul>
     </section>
   </main>
 
   <footer>
-    © 2025 SNS安全ガイド | 安全なネットの使い方をみんなで考えよう
+    © 2025 SNS安全対策ガイド | ネットはみんなのもの、安全に使おう
   </footer>
 </body>
 </html>
