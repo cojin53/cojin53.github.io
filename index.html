@@ -5,53 +5,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>SNS安全対策ガイド</title>
   <style>
-    body {
-      font-family: "Arial", sans-serif;
-      background-color: #f4f8fb;
-      margin: 0;
-      padding: 0;
-    }
-    header {
-      background-color: #003366;
-      color: white;
-      padding: 2rem;
-      text-align: center;
-    }
-    nav {
-      background-color: #005599;
-      display: flex;
-      justify-content: center;
-      padding: 0.5rem;
-    }
-    nav a {
-      color: white;
-      text-decoration: none;
-      margin: 0 1rem;
-      font-weight: bold;
-    }
-    nav a:hover {
-      text-decoration: underline;
-    }
-    main {
-      padding: 2rem;
-    }
-    section {
-      background: white;
-      border-radius: 10px;
-      padding: 1.5rem;
-      margin-bottom: 2rem;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    }
-    h2 {
-      color: #003366;
-    }
-    footer {
-      background-color: #eee;
-      text-align: center;
-      padding: 1rem;
-      font-size: 0.8rem;
-      color: #444;
-    }
+    body { font-family: 'Arial', sans-serif; background-color: #f4f8fb; margin: 0; padding: 0; }
+    header { background-color: #003366; color: white; padding: 2rem; text-align: center; }
+    nav { background-color: #005599; display: flex; justify-content: center; padding: 0.5rem; }
+    nav a { color: white; text-decoration: none; margin: 0 1rem; font-weight: bold; }
+    nav a:hover { text-decoration: underline; }
+    main { padding: 2rem; }
+    section { background: white; border-radius: 10px; padding: 1.5rem; margin-bottom: 2rem; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+    h2 { color: #003366; }
+    button { background-color: #005599; color: white; border: none; padding: 0.7rem 1.2rem; font-size: 1rem; border-radius: 6px; cursor: pointer; }
+    button:hover { background-color: #004477; }
+    footer { background-color: #eee; text-align: center; padding: 1rem; font-size: 0.8rem; color: #444; }
   </style>
 </head>
 <body>
@@ -63,6 +27,7 @@
   <nav>
     <a href="#threats">乗っ取りの手口</a>
     <a href="#protection">守る方法</a>
+    <a href="#check">診断テスト</a>
     <a href="#support">困ったときは</a>
   </nav>
 
@@ -70,10 +35,9 @@
     <section id="threats">
       <h2>最近の乗っ取り手口</h2>
       <ul>
-        <li>フィッシング詐欺：偽ログイン画面で情報を盗む</li>
-        <li>リスト型攻撃：他サイトから流出したパスワードで侵入</li>
-        <li>乗っ取りDM：詐欺リンクをばらまく</li>
-        <li>Kali Linuxなどによる高度な侵入（公共Wi-Fiなどで）</li>
+        <li>偽ログインページで情報を盗まれる</li>
+        <li>パスワードの使い回しによる侵入</li>
+        <li>詐欺リンク付きDMでの感染</li>
       </ul>
     </section>
 
@@ -82,25 +46,49 @@
       <ul>
         <li>2段階認証を必ず設定する</li>
         <li>不審なリンクは開かない</li>
-        <li>パスワードは強く、使い回さない</li>
-        <li>VPNを使って通信を暗号化</li>
-        <li>スマホ・アプリを最新に保つ</li>
+        <li>複雑なパスワードを使う</li>
       </ul>
+    </section>
+
+    <section id="check">
+      <h2>乗っ取りリスク診断チェック</h2>
+      <form id="riskForm">
+        <label><input type="checkbox" name="risk" value="1"> 同じパスワードを複数のサイトで使っている</label><br>
+        <label><input type="checkbox" name="risk" value="1"> 2段階認証を設定していない</label><br>
+        <label><input type="checkbox" name="risk" value="1"> よく知らないリンクを開いてしまう</label><br>
+        <label><input type="checkbox" name="risk" value="1"> 公共Wi-Fiをよく使う（VPNなし）</label><br>
+        <label><input type="checkbox" name="risk" value="1"> アプリやOSをあまり更新していない</label><br><br>
+        <button type="button" onclick="checkRisk()">診断する</button>
+      </form>
     </section>
 
     <section id="support">
       <h2>困ったときの連絡先</h2>
       <ul>
         <li><a href="https://www.internethotline.jp/" target="_blank">インターネットホットラインセンター</a></li>
-        <li>各SNSの通報ページ（LINE、X、Instagram）</li>
-        <li>学校や信頼できる大人に相談</li>
-        <li>最寄りの警察（サイバー犯罪対策課）</li>
+        <li>各SNSの通報ページ</li>
+        <li>信頼できる大人や先生に相談</li>
       </ul>
     </section>
   </main>
 
   <footer>
-    © 2025 SNS安全対策ガイド | ネットはみんなのもの、安全に使おう
+    © 2025 SNS安全対策ガイド
   </footer>
+
+  <script>
+    function checkRisk() {
+      const checkboxes = document.querySelectorAll('input[name="risk"]:checked');
+      const score = checkboxes.length;
+
+      if (score === 0) {
+        alert("✅ とても安全です！この調子で対策を続けましょう。");
+      } else if (score <= 2) {
+        alert("⚠️ 少しリスクがあります。2段階認証など基本対策を確認しましょう。");
+      } else {
+        alert("🚨 かなり危険です！すぐに対策を見直してください！");
+      }
+    }
+  </script>
 </body>
 </html>
